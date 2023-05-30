@@ -1,67 +1,1156 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.2 (Python 3.10.11 on win32)" generated="20230530 20:30:28.512" rpa="false" schemaversion="3">
-<suite id="s1" name="webAppTest" source="d:\SEM6\SEP6-Selenium\webAppTest.robot">
+<robot generator="Robot 6.0.2 (Python 3.10.11 on win32)" generated="20230530 21:11:43.556" rpa="false" schemaversion="3">
+<suite id="s1" name="Webapptest" source="d:\SEM6\SEP6-Selenium\webapptest.robot">
 <test id="s1-t1" name="Open Web Application" line="15">
 <kw name="Open Chrome">
 <kw name="Create Dictionary" library="BuiltIn">
 <var>${device metrics}</var>
-<arg>width=${360}</arg>
-<arg>height=${640}</arg>
-<arg>pixelRatio=${3.0}</arg>
-<arg>userAgent=Mozilla/5.0 (Linux; Android 4.2.1; en-us; Nexus 5 Build/JOP40D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19</arg>
+<arg>width=${1366}</arg>
+<arg>height=${768}</arg>
+<arg>pixelRatio=${1.0}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20230530 20:30:28.795" level="INFO">${device metrics} = {'width': 360, 'height': 640, 'pixelRatio': 3.0, 'userAgent': 'Mozilla/5.0 (Linux; Android 4.2.1; en-us; Nexus 5 Build/JOP40D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari...</msg>
-<status status="PASS" starttime="20230530 20:30:28.793" endtime="20230530 20:30:28.810"/>
-</kw>
-<kw name="Create Dictionary" library="BuiltIn">
-<var>${mobile emulation}</var>
-<arg>deviceMetrics=${device metrics}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20230530 20:30:28.810" level="INFO">${mobile emulation} = {'deviceMetrics': {'width': 360, 'height': 640, 'pixelRatio': 3.0, 'userAgent': 'Mozilla/5.0 (Linux; Android 4.2.1; en-us; Nexus 5 Build/JOP40D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025...</msg>
-<status status="PASS" starttime="20230530 20:30:28.810" endtime="20230530 20:30:28.811"/>
+<msg timestamp="20230530 21:11:43.855" level="INFO">${device metrics} = {'width': 1366, 'height': 768, 'pixelRatio': 1.0}</msg>
+<status status="PASS" starttime="20230530 21:11:43.854" endtime="20230530 21:11:43.858"/>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
 <var>${chrome options}</var>
 <arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
 <arg>sys, selenium.webdriver</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20230530 20:30:28.811" level="INFO">${chrome options} = &lt;selenium.webdriver.chrome.options.Options object at 0x05187A18&gt;</msg>
-<status status="PASS" starttime="20230530 20:30:28.811" endtime="20230530 20:30:28.811"/>
+<msg timestamp="20230530 21:11:43.859" level="INFO">${chrome options} = &lt;selenium.webdriver.chrome.options.Options object at 0x04A6DBF8&gt;</msg>
+<status status="PASS" starttime="20230530 21:11:43.858" endtime="20230530 21:11:43.859"/>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <arg>${chrome options}</arg>
-<arg>add_experimental_option</arg>
-<arg>mobileEmulation</arg>
-<arg>${mobile emulation}</arg>
+<arg>add_argument</arg>
+<arg>--start-maximized</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" starttime="20230530 20:30:28.811" endtime="20230530 20:30:28.811"/>
+<status status="PASS" starttime="20230530 21:11:43.859" endtime="20230530 21:11:43.860"/>
 </kw>
 <kw name="Create Webdriver" library="SeleniumLibrary">
 <arg>Chrome</arg>
 <arg>chrome_options=${chrome options}</arg>
 <doc>Creates an instance of Selenium WebDriver.</doc>
-<msg timestamp="20230530 20:30:28.812" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
-<msg timestamp="20230530 20:30:28.824" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
-<status status="PASS" starttime="20230530 20:30:28.811" endtime="20230530 20:30:33.430"/>
+<msg timestamp="20230530 21:11:43.860" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg timestamp="20230530 21:11:43.873" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
+<status status="PASS" starttime="20230530 21:11:43.860" endtime="20230530 21:11:45.215"/>
 </kw>
-<status status="PASS" starttime="20230530 20:30:28.793" endtime="20230530 20:30:33.430"/>
+<status status="PASS" starttime="20230530 21:11:43.853" endtime="20230530 21:11:45.216"/>
 </kw>
-<kw name="Maximize Browser Window" library="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20230530 20:30:33.431" endtime="20230530 20:30:33.553"/>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>https://localhost:5005/login</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20230530 21:11:45.217" level="INFO">Opening url 'https://localhost:5005/login'</msg>
+<status status="PASS" starttime="20230530 21:11:45.216" endtime="20230530 21:11:45.321"/>
 </kw>
-<status status="PASS" starttime="20230530 20:30:28.791" endtime="20230530 20:30:33.554"/>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:11:47.327" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230530 21:11:45.322" endtime="20230530 21:11:47.327"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230530 21:11:47.328" endtime="20230530 21:11:49.544"/>
+</kw>
+<status status="PASS" starttime="20230530 21:11:43.852" endtime="20230530 21:11:49.544"/>
 </test>
-<status status="PASS" starttime="20230530 20:30:28.529" endtime="20230530 20:30:33.556"/>
+<test id="s1-t2" name="Register a new account" line="22">
+<kw name="Open Chrome">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${device metrics}</var>
+<arg>width=${1366}</arg>
+<arg>height=${768}</arg>
+<arg>pixelRatio=${1.0}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230530 21:11:49.550" level="INFO">${device metrics} = {'width': 1366, 'height': 768, 'pixelRatio': 1.0}</msg>
+<status status="PASS" starttime="20230530 21:11:49.549" endtime="20230530 21:11:49.550"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${chrome options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230530 21:11:49.551" level="INFO">${chrome options} = &lt;selenium.webdriver.chrome.options.Options object at 0x04AB19E8&gt;</msg>
+<status status="PASS" starttime="20230530 21:11:49.550" endtime="20230530 21:11:49.551"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome options}</arg>
+<arg>add_argument</arg>
+<arg>--start-maximized</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20230530 21:11:49.551" endtime="20230530 21:11:49.551"/>
+</kw>
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<arg>Chrome</arg>
+<arg>chrome_options=${chrome options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<msg timestamp="20230530 21:11:49.552" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg timestamp="20230530 21:11:49.564" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
+<status status="PASS" starttime="20230530 21:11:49.551" endtime="20230530 21:11:50.791"/>
+</kw>
+<status status="PASS" starttime="20230530 21:11:49.548" endtime="20230530 21:11:50.792"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>https://localhost:5005/login</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20230530 21:11:50.793" level="INFO">Opening url 'https://localhost:5005/login'</msg>
+<status status="PASS" starttime="20230530 21:11:50.792" endtime="20230530 21:11:50.914"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:11:52.916" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230530 21:11:50.916" endtime="20230530 21:11:52.916"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/div[2]/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230530 21:11:52.919" level="INFO">Clicking element 'xpath:/html/body/div[1]/div/div[2]/a'.</msg>
+<status status="PASS" starttime="20230530 21:11:52.917" endtime="20230530 21:11:52.978"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:11:54.991" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230530 21:11:52.979" endtime="20230530 21:11:54.991"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/form/div[1]/input</arg>
+<arg>Selenium Test</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230530 21:11:54.993" level="INFO">Typing text 'Selenium Test' into text field 'xpath:/html/body/div[1]/div/form/div[1]/input'.</msg>
+<status status="PASS" starttime="20230530 21:11:54.992" endtime="20230530 21:11:55.080"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:11:56.093" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230530 21:11:55.081" endtime="20230530 21:11:56.093"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/form/div[2]/input</arg>
+<arg>selenium1</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230530 21:11:56.095" level="INFO">Typing text 'selenium1' into text field 'xpath:/html/body/div[1]/div/form/div[2]/input'.</msg>
+<status status="PASS" starttime="20230530 21:11:56.094" endtime="20230530 21:11:56.169"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:11:57.184" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230530 21:11:56.170" endtime="20230530 21:11:57.185"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/form/div[3]/input</arg>
+<arg>selenium1234</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230530 21:11:57.186" level="INFO">Typing password into text field 'xpath:/html/body/div[1]/div/form/div[3]/input'.</msg>
+<msg timestamp="20230530 21:11:57.216" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230530 21:11:57.256" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230530 21:11:57.186" endtime="20230530 21:11:57.257"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:11:58.262" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230530 21:11:57.257" endtime="20230530 21:11:58.263"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/form/div[4]/input</arg>
+<arg>selenium1234</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230530 21:11:58.264" level="INFO">Typing password into text field 'xpath:/html/body/div[1]/div/form/div[4]/input'.</msg>
+<msg timestamp="20230530 21:11:58.298" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230530 21:11:58.336" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230530 21:11:58.263" endtime="20230530 21:11:58.337"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:11:59.351" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230530 21:11:58.337" endtime="20230530 21:11:59.351"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/form/div[5]/button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230530 21:11:59.352" level="INFO">Clicking element 'xpath:/html/body/div[1]/div/form/div[5]/button'.</msg>
+<status status="PASS" starttime="20230530 21:11:59.351" endtime="20230530 21:11:59.392"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:12:02.405" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230530 21:11:59.393" endtime="20230530 21:12:02.405"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/form/div[1]/input</arg>
+<arg>selenium1</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230530 21:12:02.407" level="INFO">Typing text 'selenium1' into text field 'xpath:/html/body/div[1]/div/form/div[1]/input'.</msg>
+<status status="PASS" starttime="20230530 21:12:02.406" endtime="20230530 21:12:02.481"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:12:03.491" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230530 21:12:02.482" endtime="20230530 21:12:03.491"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/form/div[2]/input</arg>
+<arg>selenium1234</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230530 21:12:03.493" level="INFO">Typing password into text field 'xpath:/html/body/div[1]/div/form/div[2]/input'.</msg>
+<msg timestamp="20230530 21:12:03.518" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230530 21:12:03.559" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230530 21:12:03.492" endtime="20230530 21:12:03.559"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:12:04.573" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230530 21:12:03.560" endtime="20230530 21:12:04.573"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/form/div[3]/button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230530 21:12:04.574" level="INFO">Clicking element 'xpath:/html/body/div[1]/div/form/div[3]/button'.</msg>
+<status status="PASS" starttime="20230530 21:12:04.574" endtime="20230530 21:12:04.613"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:12:05.627" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230530 21:12:04.613" endtime="20230530 21:12:05.627"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/h1</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230530 21:12:05.628" endtime="20230530 21:12:05.656"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:12:07.671" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230530 21:12:05.658" endtime="20230530 21:12:07.671"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230530 21:12:07.672" endtime="20230530 21:12:09.811"/>
+</kw>
+<status status="PASS" starttime="20230530 21:11:49.547" endtime="20230530 21:12:09.812"/>
+</test>
+<test id="s1-t3" name="Login with an existing user account" line="49">
+<kw name="Open Chrome">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${device metrics}</var>
+<arg>width=${1366}</arg>
+<arg>height=${768}</arg>
+<arg>pixelRatio=${1.0}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230530 21:12:09.816" level="INFO">${device metrics} = {'width': 1366, 'height': 768, 'pixelRatio': 1.0}</msg>
+<status status="PASS" starttime="20230530 21:12:09.814" endtime="20230530 21:12:09.816"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${chrome options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230530 21:12:09.817" level="INFO">${chrome options} = &lt;selenium.webdriver.chrome.options.Options object at 0x04AEB208&gt;</msg>
+<status status="PASS" starttime="20230530 21:12:09.816" endtime="20230530 21:12:09.818"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome options}</arg>
+<arg>add_argument</arg>
+<arg>--start-maximized</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20230530 21:12:09.818" endtime="20230530 21:12:09.818"/>
+</kw>
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<arg>Chrome</arg>
+<arg>chrome_options=${chrome options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<msg timestamp="20230530 21:12:09.819" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg timestamp="20230530 21:12:09.831" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
+<status status="PASS" starttime="20230530 21:12:09.819" endtime="20230530 21:12:11.044"/>
+</kw>
+<status status="PASS" starttime="20230530 21:12:09.814" endtime="20230530 21:12:11.045"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>https://localhost:5005/login</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20230530 21:12:11.046" level="INFO">Opening url 'https://localhost:5005/login'</msg>
+<status status="PASS" starttime="20230530 21:12:11.045" endtime="20230530 21:12:11.159"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:12:13.164" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230530 21:12:11.160" endtime="20230530 21:12:13.164"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/form/div[1]/input</arg>
+<arg>messi00</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230530 21:12:13.166" level="INFO">Typing text 'messi00' into text field 'xpath:/html/body/div[1]/div/form/div[1]/input'.</msg>
+<status status="PASS" starttime="20230530 21:12:13.165" endtime="20230530 21:12:13.264"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:12:14.269" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230530 21:12:13.265" endtime="20230530 21:12:14.269"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/form/div[2]/input</arg>
+<arg>password</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230530 21:12:14.271" level="INFO">Typing password into text field 'xpath:/html/body/div[1]/div/form/div[2]/input'.</msg>
+<msg timestamp="20230530 21:12:14.303" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230530 21:12:14.343" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230530 21:12:14.270" endtime="20230530 21:12:14.344"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:12:15.357" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230530 21:12:14.344" endtime="20230530 21:12:15.357"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/form/div[3]/button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230530 21:12:15.359" level="INFO">Clicking button 'xpath:/html/body/div[1]/div/form/div[3]/button'.</msg>
+<status status="PASS" starttime="20230530 21:12:15.358" endtime="20230530 21:12:15.415"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/h1</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230530 21:12:15.416" endtime="20230530 21:12:15.655"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:12:17.662" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230530 21:12:15.656" endtime="20230530 21:12:17.662"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230530 21:12:17.663" endtime="20230530 21:12:19.800"/>
+</kw>
+<status status="PASS" starttime="20230530 21:12:09.813" endtime="20230530 21:12:19.801"/>
+</test>
+<test id="s1-t4" name="Display all most popular movies of year 1990s" line="63">
+<kw name="Open Chrome">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${device metrics}</var>
+<arg>width=${1366}</arg>
+<arg>height=${768}</arg>
+<arg>pixelRatio=${1.0}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230530 21:12:19.804" level="INFO">${device metrics} = {'width': 1366, 'height': 768, 'pixelRatio': 1.0}</msg>
+<status status="PASS" starttime="20230530 21:12:19.803" endtime="20230530 21:12:19.804"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${chrome options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230530 21:12:19.805" level="INFO">${chrome options} = &lt;selenium.webdriver.chrome.options.Options object at 0x04AB1298&gt;</msg>
+<status status="PASS" starttime="20230530 21:12:19.804" endtime="20230530 21:12:19.805"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome options}</arg>
+<arg>add_argument</arg>
+<arg>--start-maximized</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20230530 21:12:19.805" endtime="20230530 21:12:19.805"/>
+</kw>
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<arg>Chrome</arg>
+<arg>chrome_options=${chrome options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<msg timestamp="20230530 21:12:19.806" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg timestamp="20230530 21:12:19.819" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
+<status status="PASS" starttime="20230530 21:12:19.805" endtime="20230530 21:12:21.066"/>
+</kw>
+<status status="PASS" starttime="20230530 21:12:19.802" endtime="20230530 21:12:21.067"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>https://localhost:5005/login</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20230530 21:12:21.068" level="INFO">Opening url 'https://localhost:5005/login'</msg>
+<status status="PASS" starttime="20230530 21:12:21.067" endtime="20230530 21:12:21.174"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:12:23.192" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230530 21:12:21.177" endtime="20230530 21:12:23.193"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/form/div[1]/input</arg>
+<arg>messi00</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230530 21:12:23.195" level="INFO">Typing text 'messi00' into text field 'xpath:/html/body/div[1]/div/form/div[1]/input'.</msg>
+<status status="PASS" starttime="20230530 21:12:23.194" endtime="20230530 21:12:23.286"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:12:24.299" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230530 21:12:23.287" endtime="20230530 21:12:24.299"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/form/div[2]/input</arg>
+<arg>password</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230530 21:12:24.301" level="INFO">Typing password into text field 'xpath:/html/body/div[1]/div/form/div[2]/input'.</msg>
+<msg timestamp="20230530 21:12:24.334" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230530 21:12:24.371" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230530 21:12:24.301" endtime="20230530 21:12:24.371"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:12:25.387" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230530 21:12:24.372" endtime="20230530 21:12:25.387"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/form/div[3]/button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230530 21:12:25.388" level="INFO">Clicking button 'xpath:/html/body/div[1]/div/form/div[3]/button'.</msg>
+<status status="PASS" starttime="20230530 21:12:25.388" endtime="20230530 21:12:25.442"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/h1</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230530 21:12:25.443" endtime="20230530 21:12:25.685"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:12:26.688" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230530 21:12:25.685" endtime="20230530 21:12:26.688"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://*[@id="filter-decade"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230530 21:12:26.690" level="INFO">Clicking element 'xpath://*[@id="filter-decade"]'.</msg>
+<status status="PASS" starttime="20230530 21:12:26.689" endtime="20230530 21:12:26.749"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath://*[@id="filter-decade"]/option[5]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230530 21:12:26.750" endtime="20230530 21:12:26.773"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://*[@id="filter-decade"]/option[5]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230530 21:12:26.774" level="INFO">Clicking element 'xpath://*[@id="filter-decade"]/option[5]'.</msg>
+<status status="PASS" starttime="20230530 21:12:26.774" endtime="20230530 21:12:26.804"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:12:27.812" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230530 21:12:26.805" endtime="20230530 21:12:27.813"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/div[2]/div[1]/div[1]/img</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230530 21:12:27.813" endtime="20230530 21:12:27.832"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:12:29.839" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230530 21:12:27.832" endtime="20230530 21:12:29.839"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230530 21:12:29.840" endtime="20230530 21:12:31.971"/>
+</kw>
+<status status="PASS" starttime="20230530 21:12:19.802" endtime="20230530 21:12:31.972"/>
+</test>
+<test id="s1-t5" name="Search a movie" line="83">
+<kw name="Open Chrome">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${device metrics}</var>
+<arg>width=${1366}</arg>
+<arg>height=${768}</arg>
+<arg>pixelRatio=${1.0}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230530 21:12:31.976" level="INFO">${device metrics} = {'width': 1366, 'height': 768, 'pixelRatio': 1.0}</msg>
+<status status="PASS" starttime="20230530 21:12:31.975" endtime="20230530 21:12:31.976"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${chrome options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230530 21:12:31.977" level="INFO">${chrome options} = &lt;selenium.webdriver.chrome.options.Options object at 0x04AB1D90&gt;</msg>
+<status status="PASS" starttime="20230530 21:12:31.977" endtime="20230530 21:12:31.977"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome options}</arg>
+<arg>add_argument</arg>
+<arg>--start-maximized</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20230530 21:12:31.977" endtime="20230530 21:12:31.978"/>
+</kw>
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<arg>Chrome</arg>
+<arg>chrome_options=${chrome options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<msg timestamp="20230530 21:12:31.978" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg timestamp="20230530 21:12:31.991" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
+<status status="PASS" starttime="20230530 21:12:31.978" endtime="20230530 21:12:33.233"/>
+</kw>
+<status status="PASS" starttime="20230530 21:12:31.975" endtime="20230530 21:12:33.235"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>https://localhost:5005/login</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20230530 21:12:33.235" level="INFO">Opening url 'https://localhost:5005/login'</msg>
+<status status="PASS" starttime="20230530 21:12:33.235" endtime="20230530 21:12:33.367"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:12:35.384" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230530 21:12:33.368" endtime="20230530 21:12:35.384"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/form/div[1]/input</arg>
+<arg>messi00</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230530 21:12:35.386" level="INFO">Typing text 'messi00' into text field 'xpath:/html/body/div[1]/div/form/div[1]/input'.</msg>
+<status status="PASS" starttime="20230530 21:12:35.385" endtime="20230530 21:12:35.472"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:12:36.473" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230530 21:12:35.473" endtime="20230530 21:12:36.473"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/form/div[2]/input</arg>
+<arg>password</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230530 21:12:36.474" level="INFO">Typing password into text field 'xpath:/html/body/div[1]/div/form/div[2]/input'.</msg>
+<msg timestamp="20230530 21:12:36.506" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230530 21:12:36.542" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230530 21:12:36.474" endtime="20230530 21:12:36.543"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:12:37.550" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230530 21:12:36.543" endtime="20230530 21:12:37.551"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/form/div[3]/button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230530 21:12:37.552" level="INFO">Clicking button 'xpath:/html/body/div[1]/div/form/div[3]/button'.</msg>
+<status status="PASS" starttime="20230530 21:12:37.551" endtime="20230530 21:12:37.619"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/h1</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230530 21:12:37.620" endtime="20230530 21:12:37.886"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:12:38.890" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230530 21:12:37.887" endtime="20230530 21:12:38.890"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/div[1]/div[1]/button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230530 21:12:38.891" level="INFO">Clicking element 'xpath:/html/body/div[1]/div/div[1]/div[1]/button'.</msg>
+<status status="PASS" starttime="20230530 21:12:38.891" endtime="20230530 21:12:38.941"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:12:39.954" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230530 21:12:38.942" endtime="20230530 21:12:39.954"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/div[1]/div[1]/input</arg>
+<arg>Cars</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230530 21:12:39.957" level="INFO">Typing text 'Cars' into text field 'xpath:/html/body/div[1]/div/div[1]/div[1]/input'.</msg>
+<status status="PASS" starttime="20230530 21:12:39.956" endtime="20230530 21:12:40.062"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:12:42.072" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230530 21:12:40.063" endtime="20230530 21:12:42.073"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/div[1]/div[1]/button[1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230530 21:12:42.075" level="INFO">Clicking element 'xpath:/html/body/div[1]/div/div[1]/div[1]/button[1]'.</msg>
+<status status="PASS" starttime="20230530 21:12:42.074" endtime="20230530 21:12:42.118"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:12:44.133" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230530 21:12:42.119" endtime="20230530 21:12:44.133"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:12:45.147" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230530 21:12:44.134" endtime="20230530 21:12:45.148"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/div[2]/div/div[1]/img</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230530 21:12:45.149" endtime="20230530 21:12:45.170"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:12:47.184" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230530 21:12:45.171" endtime="20230530 21:12:47.184"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230530 21:12:47.185" endtime="20230530 21:12:49.335"/>
+</kw>
+<status status="PASS" starttime="20230530 21:12:31.974" endtime="20230530 21:12:49.336"/>
+</test>
+<test id="s1-t6" name="Open Movie Overview" line="106">
+<kw name="Open Chrome">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${device metrics}</var>
+<arg>width=${1366}</arg>
+<arg>height=${768}</arg>
+<arg>pixelRatio=${1.0}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230530 21:12:49.341" level="INFO">${device metrics} = {'width': 1366, 'height': 768, 'pixelRatio': 1.0}</msg>
+<status status="PASS" starttime="20230530 21:12:49.340" endtime="20230530 21:12:49.342"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${chrome options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230530 21:12:49.343" level="INFO">${chrome options} = &lt;selenium.webdriver.chrome.options.Options object at 0x047BECD0&gt;</msg>
+<status status="PASS" starttime="20230530 21:12:49.342" endtime="20230530 21:12:49.343"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome options}</arg>
+<arg>add_argument</arg>
+<arg>--start-maximized</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20230530 21:12:49.343" endtime="20230530 21:12:49.343"/>
+</kw>
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<arg>Chrome</arg>
+<arg>chrome_options=${chrome options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<msg timestamp="20230530 21:12:49.344" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg timestamp="20230530 21:12:49.358" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
+<status status="PASS" starttime="20230530 21:12:49.343" endtime="20230530 21:12:50.675"/>
+</kw>
+<status status="PASS" starttime="20230530 21:12:49.340" endtime="20230530 21:12:50.676"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>https://localhost:5005/login</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20230530 21:12:50.676" level="INFO">Opening url 'https://localhost:5005/login'</msg>
+<status status="PASS" starttime="20230530 21:12:50.676" endtime="20230530 21:12:50.780"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:12:52.787" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230530 21:12:50.781" endtime="20230530 21:12:52.787"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/form/div[1]/input</arg>
+<arg>messi00</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230530 21:12:52.789" level="INFO">Typing text 'messi00' into text field 'xpath:/html/body/div[1]/div/form/div[1]/input'.</msg>
+<status status="PASS" starttime="20230530 21:12:52.788" endtime="20230530 21:12:52.868"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:12:53.875" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230530 21:12:52.868" endtime="20230530 21:12:53.875"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/form/div[2]/input</arg>
+<arg>password</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230530 21:12:53.877" level="INFO">Typing password into text field 'xpath:/html/body/div[1]/div/form/div[2]/input'.</msg>
+<msg timestamp="20230530 21:12:53.917" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230530 21:12:53.968" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230530 21:12:53.876" endtime="20230530 21:12:53.969"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:12:54.984" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230530 21:12:53.969" endtime="20230530 21:12:54.984"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/form/div[3]/button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230530 21:12:54.985" level="INFO">Clicking button 'xpath:/html/body/div[1]/div/form/div[3]/button'.</msg>
+<status status="PASS" starttime="20230530 21:12:54.985" endtime="20230530 21:12:55.050"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/h1</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230530 21:12:55.051" endtime="20230530 21:12:55.284"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:12:57.291" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230530 21:12:55.285" endtime="20230530 21:12:57.292"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/div[2]/div[1]/div[1]/img</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230530 21:12:57.293" level="INFO">Clicking element 'xpath:/html/body/div[1]/div/div[2]/div[1]/div[1]/img'.</msg>
+<status status="PASS" starttime="20230530 21:12:57.293" endtime="20230530 21:12:57.339"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:12:59.356" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230530 21:12:57.340" endtime="20230530 21:12:59.356"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div[3]/button</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20230530 21:12:59.377" level="INFO">Element 'xpath:/html/body/div[1]/div[3]/button' is displayed.</msg>
+<status status="PASS" starttime="20230530 21:12:59.357" endtime="20230530 21:12:59.378"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:13:01.383" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230530 21:12:59.379" endtime="20230530 21:13:01.383"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230530 21:13:01.384" endtime="20230530 21:13:03.517"/>
+</kw>
+<status status="PASS" starttime="20230530 21:12:49.338" endtime="20230530 21:13:03.518"/>
+</test>
+<test id="s1-t7" name="Open Hall Of Fame" line="124">
+<kw name="Open Chrome">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${device metrics}</var>
+<arg>width=${1366}</arg>
+<arg>height=${768}</arg>
+<arg>pixelRatio=${1.0}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230530 21:13:03.523" level="INFO">${device metrics} = {'width': 1366, 'height': 768, 'pixelRatio': 1.0}</msg>
+<status status="PASS" starttime="20230530 21:13:03.521" endtime="20230530 21:13:03.523"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${chrome options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230530 21:13:03.523" level="INFO">${chrome options} = &lt;selenium.webdriver.chrome.options.Options object at 0x04AEB8F8&gt;</msg>
+<status status="PASS" starttime="20230530 21:13:03.523" endtime="20230530 21:13:03.524"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome options}</arg>
+<arg>add_argument</arg>
+<arg>--start-maximized</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20230530 21:13:03.524" endtime="20230530 21:13:03.524"/>
+</kw>
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<arg>Chrome</arg>
+<arg>chrome_options=${chrome options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<msg timestamp="20230530 21:13:03.525" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg timestamp="20230530 21:13:03.535" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
+<status status="PASS" starttime="20230530 21:13:03.524" endtime="20230530 21:13:04.832"/>
+</kw>
+<status status="PASS" starttime="20230530 21:13:03.521" endtime="20230530 21:13:04.832"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>https://localhost:5005/login</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20230530 21:13:04.833" level="INFO">Opening url 'https://localhost:5005/login'</msg>
+<status status="PASS" starttime="20230530 21:13:04.833" endtime="20230530 21:13:04.961"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:13:06.976" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230530 21:13:04.961" endtime="20230530 21:13:06.976"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/form/div[1]/input</arg>
+<arg>messi00</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230530 21:13:06.977" level="INFO">Typing text 'messi00' into text field 'xpath:/html/body/div[1]/div/form/div[1]/input'.</msg>
+<status status="PASS" starttime="20230530 21:13:06.977" endtime="20230530 21:13:07.067"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:13:08.069" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230530 21:13:07.068" endtime="20230530 21:13:08.070"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/form/div[2]/input</arg>
+<arg>password</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230530 21:13:08.071" level="INFO">Typing password into text field 'xpath:/html/body/div[1]/div/form/div[2]/input'.</msg>
+<msg timestamp="20230530 21:13:08.105" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230530 21:13:08.143" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230530 21:13:08.071" endtime="20230530 21:13:08.143"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:13:09.147" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230530 21:13:08.143" endtime="20230530 21:13:09.147"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/form/div[3]/button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230530 21:13:09.150" level="INFO">Clicking button 'xpath:/html/body/div[1]/div/form/div[3]/button'.</msg>
+<status status="PASS" starttime="20230530 21:13:09.148" endtime="20230530 21:13:09.201"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/h1</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230530 21:13:09.202" endtime="20230530 21:13:09.430"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:13:10.437" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230530 21:13:09.430" endtime="20230530 21:13:10.437"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/img</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230530 21:13:10.439" level="INFO">Clicking element 'xpath:/html/body/div[1]/div/img'.</msg>
+<status status="PASS" starttime="20230530 21:13:10.438" endtime="20230530 21:13:10.476"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:13:20.480" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" starttime="20230530 21:13:10.476" endtime="20230530 21:13:20.480"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/div[1]/img</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20230530 21:13:20.499" level="INFO">Element 'xpath:/html/body/div[1]/div/div[1]/img' is displayed.</msg>
+<status status="PASS" starttime="20230530 21:13:20.481" endtime="20230530 21:13:20.500"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:13:22.513" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230530 21:13:20.500" endtime="20230530 21:13:22.513"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230530 21:13:22.514" endtime="20230530 21:13:24.647"/>
+</kw>
+<status status="PASS" starttime="20230530 21:13:03.520" endtime="20230530 21:13:24.648"/>
+</test>
+<test id="s1-t8" name="Access account's favorite list" line="142">
+<kw name="Open Chrome">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${device metrics}</var>
+<arg>width=${1366}</arg>
+<arg>height=${768}</arg>
+<arg>pixelRatio=${1.0}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230530 21:13:24.652" level="INFO">${device metrics} = {'width': 1366, 'height': 768, 'pixelRatio': 1.0}</msg>
+<status status="PASS" starttime="20230530 21:13:24.651" endtime="20230530 21:13:24.652"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${chrome options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230530 21:13:24.653" level="INFO">${chrome options} = &lt;selenium.webdriver.chrome.options.Options object at 0x04AEBAF0&gt;</msg>
+<status status="PASS" starttime="20230530 21:13:24.653" endtime="20230530 21:13:24.653"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome options}</arg>
+<arg>add_argument</arg>
+<arg>--start-maximized</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20230530 21:13:24.653" endtime="20230530 21:13:24.653"/>
+</kw>
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<arg>Chrome</arg>
+<arg>chrome_options=${chrome options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<msg timestamp="20230530 21:13:24.655" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg timestamp="20230530 21:13:24.666" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
+<status status="PASS" starttime="20230530 21:13:24.653" endtime="20230530 21:13:25.888"/>
+</kw>
+<status status="PASS" starttime="20230530 21:13:24.650" endtime="20230530 21:13:25.888"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>https://localhost:5005/login</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20230530 21:13:25.889" level="INFO">Opening url 'https://localhost:5005/login'</msg>
+<status status="PASS" starttime="20230530 21:13:25.889" endtime="20230530 21:13:26.027"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:13:28.038" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230530 21:13:26.029" endtime="20230530 21:13:28.038"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/form/div[1]/input</arg>
+<arg>messi00</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230530 21:13:28.039" level="INFO">Typing text 'messi00' into text field 'xpath:/html/body/div[1]/div/form/div[1]/input'.</msg>
+<status status="PASS" starttime="20230530 21:13:28.039" endtime="20230530 21:13:28.126"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:13:29.140" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230530 21:13:28.127" endtime="20230530 21:13:29.140"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/form/div[2]/input</arg>
+<arg>password</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230530 21:13:29.143" level="INFO">Typing password into text field 'xpath:/html/body/div[1]/div/form/div[2]/input'.</msg>
+<msg timestamp="20230530 21:13:29.176" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230530 21:13:29.215" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230530 21:13:29.141" endtime="20230530 21:13:29.215"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:13:30.218" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230530 21:13:29.216" endtime="20230530 21:13:30.218"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/form/div[3]/button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230530 21:13:30.220" level="INFO">Clicking button 'xpath:/html/body/div[1]/div/form/div[3]/button'.</msg>
+<status status="PASS" starttime="20230530 21:13:30.219" endtime="20230530 21:13:30.276"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/h1</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230530 21:13:30.277" endtime="20230530 21:13:30.518"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:13:31.525" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230530 21:13:30.518" endtime="20230530 21:13:31.525"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/div[1]/div[2]/label</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230530 21:13:31.527" level="INFO">Clicking element 'xpath:/html/body/div[1]/div/div[1]/div[2]/label'.</msg>
+<status status="PASS" starttime="20230530 21:13:31.527" endtime="20230530 21:13:31.585"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:13:33.595" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230530 21:13:31.586" endtime="20230530 21:13:33.595"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/div[1]/div[2]/ul/li[1]/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230530 21:13:33.597" level="INFO">Clicking element 'xpath:/html/body/div[1]/div/div[1]/div[2]/ul/li[1]/a'.</msg>
+<status status="PASS" starttime="20230530 21:13:33.596" endtime="20230530 21:13:33.635"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:13:38.638" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20230530 21:13:33.636" endtime="20230530 21:13:38.638"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/h1</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20230530 21:13:38.660" level="INFO">Element 'xpath:/html/body/div[1]/h1' is displayed.</msg>
+<status status="PASS" starttime="20230530 21:13:38.639" endtime="20230530 21:13:38.660"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:13:40.668" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230530 21:13:38.660" endtime="20230530 21:13:40.669"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230530 21:13:40.670" endtime="20230530 21:13:42.804"/>
+</kw>
+<status status="PASS" starttime="20230530 21:13:24.650" endtime="20230530 21:13:42.805"/>
+</test>
+<test id="s1-t9" name="Access other account's favorite lists" line="162">
+<kw name="Open Chrome">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${device metrics}</var>
+<arg>width=${1366}</arg>
+<arg>height=${768}</arg>
+<arg>pixelRatio=${1.0}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230530 21:13:42.810" level="INFO">${device metrics} = {'width': 1366, 'height': 768, 'pixelRatio': 1.0}</msg>
+<status status="PASS" starttime="20230530 21:13:42.809" endtime="20230530 21:13:42.810"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${chrome options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230530 21:13:42.810" level="INFO">${chrome options} = &lt;selenium.webdriver.chrome.options.Options object at 0x040756A0&gt;</msg>
+<status status="PASS" starttime="20230530 21:13:42.810" endtime="20230530 21:13:42.811"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome options}</arg>
+<arg>add_argument</arg>
+<arg>--start-maximized</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20230530 21:13:42.811" endtime="20230530 21:13:42.811"/>
+</kw>
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<arg>Chrome</arg>
+<arg>chrome_options=${chrome options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<msg timestamp="20230530 21:13:42.812" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg timestamp="20230530 21:13:42.824" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
+<status status="PASS" starttime="20230530 21:13:42.811" endtime="20230530 21:13:44.081"/>
+</kw>
+<status status="PASS" starttime="20230530 21:13:42.808" endtime="20230530 21:13:44.081"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>https://localhost:5005/login</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20230530 21:13:44.082" level="INFO">Opening url 'https://localhost:5005/login'</msg>
+<status status="PASS" starttime="20230530 21:13:44.081" endtime="20230530 21:13:44.211"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:13:46.227" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230530 21:13:44.212" endtime="20230530 21:13:46.227"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/form/div[1]/input</arg>
+<arg>messi00</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230530 21:13:46.229" level="INFO">Typing text 'messi00' into text field 'xpath:/html/body/div[1]/div/form/div[1]/input'.</msg>
+<status status="PASS" starttime="20230530 21:13:46.228" endtime="20230530 21:13:46.316"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:13:47.333" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230530 21:13:46.318" endtime="20230530 21:13:47.334"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/form/div[2]/input</arg>
+<arg>password</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230530 21:13:47.336" level="INFO">Typing password into text field 'xpath:/html/body/div[1]/div/form/div[2]/input'.</msg>
+<msg timestamp="20230530 21:13:47.373" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230530 21:13:47.423" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230530 21:13:47.334" endtime="20230530 21:13:47.423"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:13:48.436" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230530 21:13:47.424" endtime="20230530 21:13:48.436"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/form/div[3]/button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230530 21:13:48.437" level="INFO">Clicking button 'xpath:/html/body/div[1]/div/form/div[3]/button'.</msg>
+<status status="PASS" starttime="20230530 21:13:48.436" endtime="20230530 21:13:48.494"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/h1</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230530 21:13:48.494" endtime="20230530 21:13:48.738"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:13:49.744" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230530 21:13:48.740" endtime="20230530 21:13:49.744"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/div[1]/div[2]/label</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230530 21:13:49.746" level="INFO">Clicking element 'xpath:/html/body/div[1]/div/div[1]/div[2]/label'.</msg>
+<status status="PASS" starttime="20230530 21:13:49.745" endtime="20230530 21:13:49.794"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:13:51.803" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230530 21:13:49.795" endtime="20230530 21:13:51.803"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/div/div[1]/div[2]/ul/li[2]/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230530 21:13:51.805" level="INFO">Clicking element 'xpath:/html/body/div[1]/div/div[1]/div[2]/ul/li[2]/a'.</msg>
+<status status="PASS" starttime="20230530 21:13:51.804" endtime="20230530 21:13:51.844"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:13:56.857" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20230530 21:13:51.845" endtime="20230530 21:13:56.857"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>xpath:/html/body/div[1]/h3</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20230530 21:13:56.898" level="INFO">Element 'xpath:/html/body/div[1]/h3' is displayed.</msg>
+<status status="PASS" starttime="20230530 21:13:56.858" endtime="20230530 21:13:56.898"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230530 21:13:58.915" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230530 21:13:56.899" endtime="20230530 21:13:58.915"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230530 21:13:58.916" endtime="20230530 21:14:01.074"/>
+</kw>
+<status status="PASS" starttime="20230530 21:13:42.808" endtime="20230530 21:14:01.075"/>
+</test>
+<status status="PASS" starttime="20230530 21:11:43.564" endtime="20230530 21:14:01.078"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="9" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="webAppTest">webAppTest</stat>
+<stat pass="9" fail="0" skip="0" id="s1" name="Webapptest">Webapptest</stat>
 </suite>
 </statistics>
 <errors>
